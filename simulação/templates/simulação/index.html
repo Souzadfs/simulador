@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação de Pintura</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0; /* Alterne para uma cor sólida */
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    
+</head>
+<body>
+    <button onclick="startSimulation()">Começar</button>
+
+    <script>
+        function startSimulation() {
+            fetch('/start-simulation/')
+                .then(response => response.json())
+                .then(data => alert(data.message))
+                .catch(error => console.error('Erro:', error));
+        }
+    </script>
+</body>
+</html>
